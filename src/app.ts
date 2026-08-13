@@ -9,7 +9,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.json({
     success: true,
-    message: "FixItNow API is running 🔧",
+    message: "FixItNow API is running",
   });
 });
 
