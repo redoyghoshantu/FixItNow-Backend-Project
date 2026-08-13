@@ -44,7 +44,6 @@ enum PaymentStatus {
 
 // USER & AUTH
 
-
 model User {
   id        String     @id @default(uuid())
   name      String
@@ -64,7 +63,6 @@ model User {
 }
 
 // TECHNICIAN
-
 
 model TechnicianProfile {
   id              String   @id @default(uuid())
