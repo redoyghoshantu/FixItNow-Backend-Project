@@ -1,5 +1,8 @@
 import express from "express";
 import cors from "cors";
+import { AuthRoutes } from "./modules/auth/auth.routes.js";
+import { globalErrorHandler } from "./middlewares/globalErrorHandler.js";
+import { notFound } from "./middlewares/notFound.js";
 
 const app = express();
 
@@ -7,18 +10,12 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.json({
-    success: true,
-    message: "FixItNow API is running",
-  });
+  res.json({ success: true, message: "FixItNow API is running" });
 });
 
+app.use("/api/auth", AuthRoutes);
 
-app.use((req, res) => {
-  res.status(404).json({
-    success: false,
-    message: "Route not found",
-  });
-});
+app.use(notFound);
+app.use(globalErrorHandler);
 
 export default app;
