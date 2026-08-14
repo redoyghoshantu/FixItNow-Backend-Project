@@ -1,0 +1,9 @@
+export const BOOKING_STATUS_TRANSITIONS: Record<string, string[]> = {
+  REQUESTED: ["ACCEPTED", "DECLINED", "CANCELLED"],
+  ACCEPTED: ["PAID", "CANCELLED"],
+  PAID: ["IN_PROGRESS"],
+  IN_PROGRESS: ["COMPLETED"],
+  DECLINED: [],
+  CANCELLED: [],
+  COMPLETED: [],
+};

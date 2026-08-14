@@ -6,6 +6,7 @@ import { notFound } from "./middlewares/notFound.js";
 import { CategoryRoutes } from "./modules/category/category.routes.js";
 import { ServiceRoutes } from "./modules/service/service.routes.js";
 import { technicianRoutes } from "./modules/technician/technician.routes.js";
+import { BookingRoutes } from "./modules/booking/booking.routes.js";
 
 
 
@@ -24,6 +25,7 @@ app.use("/api/auth", AuthRoutes);
 app.use("/api/categories", CategoryRoutes);
 app.use("/api/services", ServiceRoutes);
 app.use("/api/technicians", technicianRoutes);
+app.use("/api/bookings", BookingRoutes);
 
 app.use(notFound);
 app.use(globalErrorHandler);
