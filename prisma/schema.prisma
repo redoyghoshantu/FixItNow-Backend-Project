@@ -160,7 +160,7 @@ model Payment {
   provider        PaymentProvider
   status          PaymentStatus   @default(PENDING)
   transactionId   String?
-  stripeSessionId String?
+  stripeSessionId String?         @unique
   paidAt          DateTime?
   createdAt       DateTime        @default(now())
 
