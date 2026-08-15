@@ -9,6 +9,7 @@ import { technicianRoutes } from "./modules/technician/technician.routes.js";
 import { BookingRoutes } from "./modules/booking/booking.routes.js";
 import { PaymentControllers } from "./modules/payment/payment.controller.js";
 import { PaymentRoutes } from "./modules/payment/payment.routes.js";
+import { ReviewRoutes } from "./modules/review/review.routes.js";
 
 
 
@@ -35,6 +36,7 @@ app.use("/api/services", ServiceRoutes);
 app.use("/api/technicians", technicianRoutes);
 app.use("/api/bookings", BookingRoutes);
 app.use("/api/payments", PaymentRoutes);
+app.use("/api/reviews", ReviewRoutes);
 
 app.use(notFound);
 app.use(globalErrorHandler);
