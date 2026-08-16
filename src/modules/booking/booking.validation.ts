@@ -10,6 +10,7 @@ export const createBookingSchema = z.object({
 });
 
 export const updateBookingStatusSchema = z.object({
+  params: z.object({ id: z.string().uuid("Invalid booking ID") }),
   body: z.object({
     status: z.enum(["ACCEPTED", "DECLINED", "IN_PROGRESS", "COMPLETED"]),
   }),

@@ -6,6 +6,7 @@ import {
   updateBookingStatusSchema,
 } from "./booking.validation.js";
 import { auth } from "../../middlewares/auth.js";
+import { idParamSchema } from "../../utils/idParamSchema.js";
 
 const router = Router();
 
@@ -17,10 +18,9 @@ router.post(
   BookingControllers.createBooking
 );
 router.get("/", auth("CUSTOMER"), BookingControllers.getMyBookings);
-router.patch("/:id/cancel", auth("CUSTOMER"), BookingControllers.cancelBooking);
+router.patch("/:id/cancel", validateRequest(idParamSchema), auth("CUSTOMER"), BookingControllers.cancelBooking);
 
-// Shared (any logged-in user can view a single booking — ownership checked inside service later if needed)
-router.get("/:id", auth(), BookingControllers.getBookingById);
+router.get("/:id", validateRequest(idParamSchema),  auth(), BookingControllers.getBookingById);
 
 // Technician routes
 router.get(
