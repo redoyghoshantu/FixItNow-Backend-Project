@@ -9,7 +9,6 @@ datasource db {
 
 
 // ENUMS
-
 enum Role {
   CUSTOMER
   TECHNICIAN
@@ -43,7 +42,6 @@ enum PaymentStatus {
 }
 
 // USER & AUTH
-
 model User {
   id        String     @id @default(uuid())
   name      String
@@ -63,7 +61,6 @@ model User {
 }
 
 // TECHNICIAN
-
 model TechnicianProfile {
   id              String   @id @default(uuid())
   userId          String   @unique
@@ -96,7 +93,6 @@ model AvailabilitySlot {
 
 
 // CATALOG (Categories & Services)
-
 model Category {
   id          String   @id @default(uuid())
   name        String   @unique
@@ -127,7 +123,6 @@ model Service {
 
 
 // BOOKING
-
 model Booking {
   id                  String            @id @default(uuid())
   customerId          String
@@ -150,8 +145,6 @@ model Booking {
 }
 
 // PAYMENT
-
-
 model Payment {
   id              String          @id @default(uuid())
   bookingId       String          @unique
@@ -169,7 +162,6 @@ model Payment {
 
 
 // REVIEW
-
 model Review {
   id         String   @id @default(uuid())
   bookingId  String   @unique

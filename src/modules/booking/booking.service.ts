@@ -22,12 +22,12 @@ const createBooking = async (customerId: string, payload: CreateBookingInput) =>
   return prisma.booking.create({
     data: {
       customerId,
-      technicianProfileId: service.technicianProfileId, // derived, client পাঠায়নি
+      technicianProfileId: service.technicianProfileId, 
       serviceId: payload.serviceId,
       scheduledAt: new Date(payload.scheduledAt),
       address: payload.address,
       notes: payload.notes,
-      status: "REQUESTED", // hardcoded, client override করতে পারবে না
+      status: "REQUESTED", 
     },
     include: {
       service: { include: { category: true } },
@@ -80,7 +80,7 @@ const getBookingById = async (
     throw new AppError(404, "Booking not found");
   }
 
-  // Ownership check — Admin সব দেখতে পারবে, বাকিরা শুধু নিজেরটা
+  
   if (requester.role === "ADMIN") {
     return booking;
   }
@@ -101,7 +101,7 @@ const getBookingById = async (
   throw new AppError(403, "You do not have permission to view this booking");
 };
 
-// Technician: accept/decline/start/complete
+
 const updateBookingStatus = async (
   userId: string,
   bookingId: string,
@@ -131,7 +131,7 @@ const updateBookingStatus = async (
   });
 };
 
-// Customer: cancel
+
 const cancelBooking = async (customerId: string, bookingId: string) => {
   const booking = await prisma.booking.findUnique({ where: { id: bookingId } });
   if (!booking) throw new AppError(404, "Booking not found");

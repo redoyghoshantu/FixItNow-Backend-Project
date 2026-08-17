@@ -13,7 +13,7 @@ export const updateAvailabilitySchema = z.object({
     slots: z
       .array(
         z.object({
-          dayOfWeek: z.number().int().min(0).max(6), // 0=Sunday ... 6=Saturday
+          dayOfWeek: z.number().int().min(0).max(6), 
           startTime: z.string().regex(/^([01]\d|2[0-3]):([0-5]\d)$/, "Use HH:mm format"),
           endTime: z.string().regex(/^([01]\d|2[0-3]):([0-5]\d)$/, "Use HH:mm format"),
         })

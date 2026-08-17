@@ -7,7 +7,7 @@ import { idParamSchema } from "../../utils/idParamSchema.js";
 
 const router = Router();
 
-router.get("/", technicianControllers.getAllTechnicians); // Public
+router.get("/", technicianControllers.getAllTechnicians); 
 router.get("/:id", validateRequest(idParamSchema),technicianControllers.getTechnicianById); // Public
 
 router.put(

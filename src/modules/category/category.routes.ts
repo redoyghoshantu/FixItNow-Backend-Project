@@ -6,7 +6,7 @@ import { auth } from "../../middlewares/auth.js";
 
 const router = Router();
 
-router.get("/", CategoryControllers.getAllCategories); // Public
+router.get("/", CategoryControllers.getAllCategories); 
 router.post(
   "/",
   auth("ADMIN"),

@@ -10,7 +10,6 @@ interface CreateServiceInput {
 }
 
 const createService = async (userId: string, payload: CreateServiceInput) => {
-  // Token এর userId দিয়ে TechnicianProfile বের করা — client কে বিশ্বাস করছি না
   const technicianProfile = await prisma.technicianProfile.findUnique({
     where: { userId },
   });

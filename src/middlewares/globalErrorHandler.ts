@@ -16,7 +16,7 @@ export const globalErrorHandler = (
     statusCode = err.statusCode;
     message = err.message;
   } else if (err instanceof Prisma.PrismaClientKnownRequestError) {
-    // Unique constraint violation (e.g., duplicate email)
+    
     if (err.code === "P2002") {
       statusCode = 409;
       message = `Duplicate value for field: ${err.meta?.target}`;

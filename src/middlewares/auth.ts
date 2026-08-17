@@ -12,7 +12,6 @@ declare global {
 
 export const auth = (...allowedRoles: string[]) => {
   return (req: Request, res: Response, next: NextFunction) => {
-    // ⚠️ Assignment spec অনুযায়ী token সরাসরি header এ, "Bearer " prefix ছাড়া
     const token = req.headers.authorization;
 
     if (!token) {

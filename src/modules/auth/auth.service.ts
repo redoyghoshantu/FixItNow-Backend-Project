@@ -22,7 +22,7 @@ const registerUser = async (payload: RegisterInput) => {
 
   const hashedPassword = await bcrypt.hash(payload.password, 10);
 
-  // TECHNICIAN role হলে User + TechnicianProfile দুটোই একসাথে তৈরি করা হবে
+  
   const user = await prisma.user.create({
     data: {
       name: payload.name,
@@ -32,7 +32,7 @@ const registerUser = async (payload: RegisterInput) => {
       role: payload.role,
       ...(payload.role === "TECHNICIAN" && {
         technicianProfile: {
-          create: {}, // empty profile, পরে update করবে
+          create: {}, 
         },
       }),
     },
